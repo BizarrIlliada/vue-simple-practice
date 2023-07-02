@@ -31,15 +31,24 @@ const app = Vue.createApp({
   computed: {
     fullName() {
       console.log('Full name was computed');
-    
-      return this.firstName + ' ' + this.lastName;
+      if (this.firstName && this.lastName) {
+        return this.firstName + ' ' + this.lastName;
+      } else {
+        return '';
+      }
     }
   },
 
   watch: {
-    // firstName(newVal, oldVal) {
-    //   this.fullName = newVal + ' ' + this.lastName;
-    // }
+    counter(newVal, oldVal) {
+      if (newVal > 50) {
+        this.counter = 0;
+      }
+
+      if (newVal < -50) {
+        this.counter = 1;
+      }
+    }
   },
 })
 
