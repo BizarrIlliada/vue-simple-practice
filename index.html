@@ -5,11 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/vue@next"></script>
   <script src="app.js" defer></script>
-  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+  <title>Vue!</title>
 </head>
   <body>
-    <main id="vueApp">
-      {{ value }}
+    <header class="header">
+      <div class="header__logo">
+        Id.
+      </div>
+      <span class="header header__title">
+        Learn Vue!
+      </span>
+    </header>
+
+    <main class="main" id="vueApp">
+      <section class="counter-section main__counter-section">
+        <div
+          class="counter"
+        >
+          {{ counter }}
+        </div>
+      </section>
+      <section class="inputs main__inputs">
+        <input
+          class="main__input"
+          type="text"
+          v-model="firstName"
+        >
+        <button
+          class="inputs__button"
+          @click="clearFirstName"
+          @mouseover="add"
+          @mouseleave="add"
+        >
+          Clear name
+        </button>
+        <input
+          class="main__input"
+          type="text"
+          v-model="lastName"
+        >
+        <button
+          class="inputs__button"
+          @click="clearLastName"
+          @mouseover="reduce"
+          @mouseleave="reduce"
+        >
+          Clear lastname
+        </button>
+      </section>
+      <p class="main__paragraph">
+        {{ fullName }}
+      </p>
     </main>
+
+    <footer class="footer">
+      <span class="footer__message">
+        Illiada inc.
+      </span>
+    </footer>
   </body>
 </html>
